@@ -10,12 +10,12 @@ I generally use this image when I need some tooling inside of a Kubernetes clust
 
 Install:
 
-`kubectl create deployment cooltools --image=deadishlabs/cooltools:latest`
+`kubectl run cooltools --image=deadishlabs/cooltools:latest --generator=run-pod/v1`
 
 Use:
 
-`kubectl exec -it deployment/cooltools bash`
+`kubectl exec -it cooltools bash`
 
 Destroy:
 
-`kubectl delete deployment cooltools`
+`kubectl delete pod cooltools`
