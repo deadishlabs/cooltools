@@ -30,7 +30,6 @@ RUN apk add --update-cache bash \
     less \
     tmux \
     screen \
-    tail \
     jq
 
 # AWS
