@@ -46,6 +46,6 @@ RUN curl -sSL https://sdk.cloud.google.com | bash
 # Kubectl
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.1/bin/linux/amd64/kubectl && chmod u+x kubectl && mv kubectl /usr/local/bin/kubectl
 
-ADD cooltools.txt /cooltools.txt
+ADD cooltools.txt /var/cooltools.txt
 
-CMD ["tail -f /cooltools.txt"]
+CMD /usr/bin/tail -f /var/cooltools.txt
