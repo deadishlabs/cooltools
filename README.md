@@ -6,6 +6,8 @@ https://hub.docker.com/r/deadishlabs/cooltools
 
 # Usage
 
+## Kubernetes
+
 I generally use this image when I need some tooling inside of a Kubernetes cluster but do not want to install individual tools into already-running pods.
 
 Install:
@@ -19,3 +21,19 @@ Use:
 Destroy:
 
 `kubectl delete pod cooltools`
+
+## Local
+
+Maybe you just need to run it locally on a machine that has Docker but not all of these other tools installed.
+
+Install:
+
+`docker run -d cooltools deadishlabs/cooltools:latest`
+
+Use:
+
+`docker exec -it cooltools bash`
+
+Destroy:
+
+`docker stop cooltools`

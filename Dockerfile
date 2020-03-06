@@ -21,14 +21,19 @@ RUN apk add --update-cache bash \
     busybox-extras \
     curl \
     wget \
+    iputils \
+    bind-tools \
+    bmon \
+    nmap \
+    tcpdump \
+    mtr \
+    snort \
     # SCM
     git \
     subversion \
     # Misc tools
     gzip \
     tar \
-    less \
-    tmux \
     screen \
     jq
 
@@ -41,4 +46,4 @@ RUN curl -sSL https://sdk.cloud.google.com | bash
 # Kubectl
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.1/bin/linux/amd64/kubectl && chmod u+x kubectl && mv kubectl /usr/local/bin/kubectl
 
-CMD ["tail -f /var/log/*"]
+CMD ["tail -f cooltools.txt"]
