@@ -3,10 +3,10 @@ FROM alpine:latest
 RUN apk add --update-cache bash \
     # Programming
     nodejs \
-    nodejs-npm \
-    python \
-    py-pip \
+    python3 \
+    py3-pip \
     ruby \
+    openjdk11 \
     # Database clients
     mysql-client \
     postgresql-client \
@@ -39,12 +39,17 @@ RUN apk add --update-cache bash \
 
 # AWS
 RUN pip install --upgrade awscli
-    
+
 # GCloud SDK
 RUN curl -sSL https://sdk.cloud.google.com | bash
 
 # Kubectl
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.1/bin/linux/amd64/kubectl && chmod u+x kubectl && mv kubectl /usr/local/bin/kubectl
+
+# Kafka Tools
+RUN curl -LO https://mirrors.ocf.berkeley.edu/apache/kafka/2.8.0/kafka_2.13-2.8.0.tgz && tar xvzf kafka_2.13-2.8.0.tgz && rm -rf kafka_2.13-2.8.0.tgz
+
+ENV PATH="/kafka_2.13-2.8.0/bin:${PATH}"
 
 ADD cooltools.txt /var/cooltools.txt
 
